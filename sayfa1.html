@@ -31,10 +31,12 @@
 
             // BURADA ESKİ KİŞİ İNPUTLARI SİLİNMELİ
             let kisiInputlar = document.querySelectorAll("#kisiListesi > input")
+            let kisiParagraflar = document.querySelectorAll("#kisiListesi > p")
             if (kisiInputlar.length > 0) {
                 //demek ki kisiListesi içinde daha önce inputlar var
                 for ( let sira = 0; sira < kisiInputlar.length; sira++ ) {
                     kisiInputlar[sira].remove()
+                    kisiParagraflar[sira].remove()
                 }
             }
 
