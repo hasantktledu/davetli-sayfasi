@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayfa 2</title>
+</head>
+<body>
+    <h1>Bisiklet Kiralama</h1>
+    
+    <form action="">
+        <div>
+            <label for="">Bisiklet No:</label>
+            <input type="number" id="bisikletNo">
+        </div>
+        <div>
+            <label for="">Gün Sayısı</label>
+            <input type="number">
+        </div>
+        <button id="btnHesapla">Hesapla</button>
+    </form>
+
+    <script>
+        const veri = [
+            { no: 1, gunFiyat: 50 },
+            { no: 2, gunFiyat: 75 },
+            { no:3, gunFiyat:100 }
+        ]
+
+        document.querySelector("#btnHesapla").addEventListener( "click", function(olay) {
+            olay.preventDefault() //bu butonun sebep olacağı default işlemleri durdurur
+
+            let bisikletNo = parseInt( document.querySelector("#bisikletNo").value )
+            let bisikletObjesi = null
+            
+            //veri içindeki eleman sayısı kadar if sorgusu yapıyoruz
+            for( sayac = 0; sayac < veri.length; sayac++ ) {
+                if ( veri[sayac].no === bisikletNo ) {
+                    bisikletObjesi = veri[sayac];
+                    break;
+                }
+            }
+
+            if ( bisikletObjesi !== null ) {
+                //bisiklet fiyat hesaplaması yapılacak
+                //...
+            } else {
+                alert("Bisiklet bulunamadı")
+            }
+        } )
+    </script>
+</body>
+</html>
