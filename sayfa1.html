@@ -52,6 +52,11 @@
             {
                 let yeniEleman = document.createElement("input") //input etiketi oluştur
                 yeniEleman.placeholder = "Ad Soyad"
+
+                let yeniParagraf = document.createElement("p")
+                yeniParagraf.textContent = (1+sayac) + ". kişi"
+
+                document.querySelector("#kisiListesi").appendChild(yeniParagraf)
                 document.querySelector("#kisiListesi").appendChild(yeniEleman)
             }
 
