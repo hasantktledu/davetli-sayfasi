@@ -15,24 +15,39 @@
 <body>
     <h1>Sticker Siparişi Sayfası</h1>
     <h2>Lütfen davete katılacak kişi sayısını giriniz:</h2>
+
     <input type="text" id="kisiSayisi">
 
     <button id="btnDevam">Devam ></button>
 
-    <div id="kisiListesi">
-
-    </div>
+    <div id="kisiListesi"></div>
 
     <script>
         let devamButonu = document.querySelector("#btnDevam")
         devamButonu.addEventListener( "click", function () {
             //devam butonu tıklanınca bu kodlar çalışacak...
-            for ( let sayac = 0; sayac < 3; sayac++ )
+
+            // location.reload() //sayfa yenilemesi
+
+            // BURADA ESKİ KİŞİ İNPUTLARI SİLİNMELİ
+            let kisiInputlar = document.querySelectorAll("#kisiListesi > input")
+            if (kisiInputlar.length > 0) {
+                //demek ki kisiListesi içinde daha önce inputlar var
+                for ( let sira = 0; sira < kisiInputlar.length; sira++ ) {
+                    kisiInputlar[sira].remove()
+                }
+            }
+
+            let toplamKisi = document.querySelector("#kisiSayisi").value
+            toplamKisi = parseInt(toplamKisi)
+
+            for ( let sayac = 0; sayac < toplamKisi; sayac++ )
             {
-                let yeniEleman = document.createElement("input")
+                let yeniEleman = document.createElement("input") //input etiketi oluştur
                 yeniEleman.placeholder = "Ad Soyad"
                 document.querySelector("#kisiListesi").appendChild(yeniEleman)
             }
+
         } )
 
         
