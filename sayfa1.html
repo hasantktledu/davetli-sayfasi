@@ -16,7 +16,7 @@
     <h1>Sticker Siparişi Sayfası</h1>
     <h2>Lütfen davete katılacak kişi sayısını giriniz:</h2>
 
-    <input type="text" id="kisiSayisi">
+    <input type="number" id="kisiSayisi">
 
     <button id="btnDevam">Devam ></button>
 
@@ -39,7 +39,14 @@
             }
 
             let toplamKisi = document.querySelector("#kisiSayisi").value
-            toplamKisi = parseInt(toplamKisi)
+            toplamKisi = parseInt(toplamKisi) //inputa girilen string bilgi numbera çevrildi
+
+            //riskli veriler için kontroller
+            if (toplamKisi > 1000) {
+                alert("En fazla 1000 kişi girilebilir")
+                return
+            }
+
 
             for ( let sayac = 0; sayac < toplamKisi; sayac++ )
             {
